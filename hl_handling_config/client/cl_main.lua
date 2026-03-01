@@ -17,11 +17,18 @@ local blacklist = {
     [`baller7`] = true,
     [`buffalo`] = true,
     [`buffalo2`] = true,
+    [`cavalcade`] = true,
+    [`cavalcade2`] = true,
+    [`dorado`] = true,
     [`dominator`] = true,
     [`dukes`] = true,
     [`drafter`] = true,
     [`exemplar`] = true,
+    [`rocoto`] = true,
     [`f620`] = true,
+    [`firebolt`] = true,
+    [`yosemite3`] = true,
+    [`keitora`] = true,
     [`z190`] = true,
 }
 
@@ -53,10 +60,9 @@ local slipperySurfaceMaterial = {
 local classConfig = {
     -- Compacts
     [0] = {
-        fInitialDriveForce_mult     = 0.85, -- Força de aceleração inicial
+        fInitialDriveForce_mult     = 0.65, -- Força de aceleração inicial
         fInitialDriveMaxFlatVel_mult = 0.90, -- Velocidade máxima final
-        fInitialDragCoeff_mult       = 1.00, -- Coeficiente de arrasto aerodinâmico
-        fSteeringLock_mult          = 0.55, -- Ângulo de esterçamento das rodas
+        fSteeringLock_mult          = 0.53, -- Ângulo de esterçamento das rodas
         fTractionCurveMax_mult      = 1.00, -- Tração máxima (aderência)
         fTractionCurveMin_mult      = 1.10, -- Tração mínima
         fTractionCurveLateral_mult  = 0.74, -- Tração lateral (curvas)
@@ -71,10 +77,9 @@ local classConfig = {
     },
     -- Sedans
     [1] = {
-        fInitialDriveForce_mult     = 0.85,
-        fInitialDriveMaxFlatVel_mult = 0.90,
-        fInitialDragCoeff_mult      = 1.00,
-        fSteeringLock_mult          = 0.65,
+        fInitialDriveForce_mult     = 0.65,
+        fInitialDriveMaxFlatVel_mult = 1.00,
+        fSteeringLock_mult          = 0.68,
         fTractionCurveMax_mult      = 0.78,
         fTractionCurveMin_mult      = 0.80,
         fTractionCurveLateral_mult  = 0.75,
@@ -89,12 +94,11 @@ local classConfig = {
     },
     -- SUVs
     [2] = {
-        fInitialDriveForce_mult     = 0.81,
-        fInitialDriveMaxFlatVel_mult = 0.90,
-        fInitialDragCoeff_mult      = 1.00,
+        fInitialDriveForce_mult     = 0.85,
+        fInitialDriveMaxFlatVel_mult = 0.80,
         fSteeringLock_mult          = 0.76,
-        fTractionCurveMax_mult      = 1.00,
-        fTractionCurveMin_mult      = 1.10,
+        fTractionCurveMax_mult      = 0.85,
+        fTractionCurveMin_mult      = 0.97,
         fTractionCurveLateral_mult  = 0.87,
         fBrakeForce_mult            = 1.25,
         fSuspensionForce_mult       = 0.88,
@@ -107,10 +111,9 @@ local classConfig = {
     },
     -- Coupes
     [3] = {
-        fInitialDriveForce_mult     = 0.83,
+        fInitialDriveForce_mult     = 0.63,
         fInitialDriveMaxFlatVel_mult = 1.00,
-        fInitialDragCoeff_mult      = 1.00,
-        fSteeringLock_mult          = 0.65,
+        fSteeringLock_mult          = 0.73,
         fTractionCurveMax_mult      = 0.76,
         fTractionCurveMin_mult      = 0.82,
         fTractionCurveLateral_mult  = 0.73,
@@ -125,10 +128,9 @@ local classConfig = {
     },
     -- Muscle
     [4] = {
-        fInitialDriveForce_mult     = 0.83,
+        fInitialDriveForce_mult     = 0.57,
         fInitialDriveMaxFlatVel_mult = 1.05,
-        fInitialDragCoeff_mult      = 1.00,
-        fSteeringLock_mult          = 0.55,
+        fSteeringLock_mult          = 0.64,
         fTractionCurveMax_mult      = 0.87,
         fTractionCurveMin_mult      = 0.87,
         fTractionCurveLateral_mult  = 0.80,
@@ -145,8 +147,7 @@ local classConfig = {
     [5] = {
         fInitialDriveForce_mult     = 0.60,
         fInitialDriveMaxFlatVel_mult = 1.00,
-        fInitialDragCoeff_mult      = 1.00,
-        fSteeringLock_mult          = 0.50,
+        fSteeringLock_mult          = 0.68,
         fTractionCurveMax_mult      = 0.78,
         fTractionCurveMin_mult      = 0.80,
         fTractionCurveLateral_mult  = 0.75,
@@ -161,12 +162,11 @@ local classConfig = {
     },
     -- Sports
     [6] = {
-        fInitialDriveForce_mult     = 0.70,
+        fInitialDriveForce_mult     = 0.60,
         fInitialDriveMaxFlatVel_mult = 1.00,
-        fInitialDragCoeff_mult      = 1.00,
-        fSteeringLock_mult          = 0.78,
-        fTractionCurveMax_mult      = 0.80,
-        fTractionCurveMin_mult      = 0.76,
+        fSteeringLock_mult          = 0.65,
+        fTractionCurveMax_mult      = 0.73,
+        fTractionCurveMin_mult      = 0.69,
         fTractionCurveLateral_mult  = 0.71,
         fBrakeForce_mult            = 0.89,
         fSuspensionForce_mult       = 0.85,
@@ -179,31 +179,34 @@ local classConfig = {
     },
     -- Super
     [7] = {
-        fInitialDriveForce_mult     = 0.51,
-        fInitialDriveMaxFlatVel_mult = 0.90,
-        fInitialDragCoeff_mult      = 1.00,
-        fSteeringLock_mult          = 1.00,
+        fInitialDriveForce_mult     = 0.71,
+        fInitialDriveMaxFlatVel_mult = 0.70,
+        fInitialDragCoeff_mult      = 0.80,
+        fSteeringLock_mult          = 0.52,
         fTractionCurveMax_mult      = 0.74,
         fTractionCurveMin_mult      = 0.67,
         fTractionCurveLateral_mult  = 0.71,
         fBrakeForce_mult            = 0.85,
-        fSuspensionForce_mult       = 0.57,
+        fSuspensionForce_mult       = 0.87,
+        fSuspensionUpperLimit_mult  = 1.40,
+        fSuspensionLowerLimit_mult  = 1.20,
         fTractionLossMult           = 2.00,
         fAntiRollBarForce           = 0.30,
-        fRollCentreHeightFront      = 0.07,
-        fRollCentreHeightRear       = 0.07,
+        fRollCentreHeightFront      = 0.20,
+        fRollCentreHeightRear       = 0.27,
     },
     -- Off-roads
     [9] = {
         fInitialDriveForce_mult     = 0.56,
         fInitialDriveMaxFlatVel_mult = 0.95,
-        fInitialDragCoeff_mult      = 1.00,
         fSteeringLock_mult          = 0.59,
         fTractionCurveMax_mult      = 0.77,
         fTractionCurveMin_mult      = 0.76,
         fTractionCurveLateral_mult  = 0.71,
         fBrakeForce_mult            = 1.36,
-        fSuspensionForce_mult       = 0.37,
+        fSuspensionForce_mult       = 0.57,
+        fSuspensionUpperLimit_mult  = 1.30,
+        fSuspensionLowerLimit_mult  = 1.20,
         fTractionLossMult           = 1.50,
         fAntiRollBarForce           = 0.30,
         fAntiRollBarBiasFront       = 0.60,
@@ -214,13 +217,14 @@ local classConfig = {
     [10] = {
         fInitialDriveForce_mult     = 1.09,
         fInitialDriveMaxFlatVel_mult = 1.00,
-        fInitialDragCoeff_mult      = 1.00,
         fSteeringLock_mult          = 0.62,
         fTractionCurveMax_mult      = 1.06,
         fTractionCurveMin_mult      = 1.14,
         fTractionCurveLateral_mult  = 1.09,
         fBrakeForce_mult            = 2.40,
         fSuspensionForce_mult       = 0.71,
+        fSuspensionUpperLimit_mult  = 1.20,
+        fSuspensionLowerLimit_mult  = 1.00,
         fTractionLossMult           = 1.50,
         fAntiRollBarForce           = 0.0,
         fRollCentreHeightFront      = 0.24,
@@ -230,13 +234,14 @@ local classConfig = {
     [11] = {
         fInitialDriveForce_mult     = 1.09,
         fInitialDriveMaxFlatVel_mult = 1.00,
-        fInitialDragCoeff_mult      = 1.00,
         fSteeringLock_mult          = 0.62,
         fTractionCurveMax_mult      = 1.06,
         fTractionCurveMin_mult      = 1.14,
         fTractionCurveLateral_mult  = 1.09,
         fBrakeForce_mult            = 2.40,
         fSuspensionForce_mult       = 0.71,
+        fSuspensionUpperLimit_mult  = 1.40,
+        fSuspensionLowerLimit_mult  = 1.20,
         fTractionLossMult           = 1.50,
         fAntiRollBarForce           = 0.0,
         fRollCentreHeightFront      = 0.24,
@@ -244,35 +249,37 @@ local classConfig = {
     },
     -- Vans
     [12] = {
-        fInitialDriveForce_mult     = 0.84,
+        fInitialDriveForce_mult     = 0.64,
         fInitialDriveMaxFlatVel_mult = 1.00,
-        fInitialDragCoeff_mult      = 1.00,
         fSteeringLock_mult          = 0.66,
         fTractionCurveMax_mult      = 0.87,
         fTractionCurveMin_mult      = 0.94,
         fTractionCurveLateral_mult  = 0.80,
         fBrakeForce_mult            = 1.00,
-        fSuspensionForce_mult       = 0.58,
+        fSuspensionForce_mult       = 0.98,
+        fSuspensionUpperLimit_mult  = 1.40,
+        fSuspensionLowerLimit_mult  = 1.20,
         fTractionLossMult           = 1.50,
-        fAntiRollBarForce           = 0.0,
-        fRollCentreHeightFront      = 0.60,
-        fRollCentreHeightRear       = 0.60,
+        fAntiRollBarForce           = 0.00,
+        fRollCentreHeightFront      = 0.40,
+        fRollCentreHeightRear       = 0.40,
     },
     -- Commercial
     [20] = {
         fInitialDriveForce_mult     = 0.90,
         fInitialDriveMaxFlatVel_mult = 1.00,
-        fInitialDragCoeff_mult      = 1.00,
         fSteeringLock_mult          = 0.64,
         fTractionCurveMax_mult      = 0.95,
         fTractionCurveMin_mult      = 1.00,
         fTractionCurveLateral_mult  = 0.90,
         fBrakeForce_mult            = 1.80,
-        fSuspensionForce_mult       = 0.65,
+        fSuspensionForce_mult       = 0.95,
+        fSuspensionUpperLimit_mult  = 1.20,
+        fSuspensionLowerLimit_mult  = 1.00,
         fTractionLossMult           = 1.50,
         fAntiRollBarForce           = 0.0,
-        fRollCentreHeightFront      = 0.40,
-        fRollCentreHeightRear       = 0.40,
+        fRollCentreHeightFront      = 0.50,
+        fRollCentreHeightRear       = 0.50,
     },
 }
 
@@ -280,7 +287,6 @@ local classConfig = {
 local defaultClassConfig = {
     fInitialDriveForce_mult     = 0.60,
     fInitialDriveMaxFlatVel_mult = 1.00,
-    fInitialDragCoeff_mult      = 1.00,
     fSteeringLock_mult          = 0.68,
     fTractionCurveMax_mult      = 0.78,
     fTractionCurveMin_mult      = 0.80,
@@ -320,7 +326,7 @@ function AdjustVehicleHandling(plyVeh)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fHandBrakeForce", 0.8)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fEngineDamageMult", 1.0)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fDeformationDamageMult", 2.0)
-    SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fDownforceModifier", 0.0)
+    SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fDownforceModifier", 10.0)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fBrakeBiasFront", 0.65)
 
     SetVehicleHandlingInt(plyVeh, "CCarHandlingData", "strAdvancedFlags", 201326592)
@@ -329,7 +335,6 @@ function AdjustVehicleHandling(plyVeh)
     -- Per-class multipliers (Direct application)
     local fInitialDriveForce = GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDriveForce")
     local fInitialDriveMaxFlatVel = GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDriveMaxFlatVel")
-    local fInitialDragCoeff = GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDragCoeff")
     local fSteeringLock = GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fSteeringLock")
     local fTractionCurveMax = GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fTractionCurveMax")
     local fTractionCurveMin = GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fTractionCurveMin")
@@ -341,7 +346,6 @@ function AdjustVehicleHandling(plyVeh)
 
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDriveForce", fInitialDriveForce * cfg.fInitialDriveForce_mult)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDriveMaxFlatVel", fInitialDriveMaxFlatVel * cfg.fInitialDriveMaxFlatVel_mult)
-    SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDragCoeff", fInitialDragCoeff * cfg.fInitialDragCoeff_mult)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fSteeringLock", fSteeringLock * cfg.fSteeringLock_mult)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fTractionCurveMax", fTractionCurveMax * cfg.fTractionCurveMax_mult)
     SetVehicleHandlingFloat(plyVeh, "CHandlingData", "fTractionCurveMin", fTractionCurveMin * cfg.fTractionCurveMin_mult)
@@ -361,7 +365,6 @@ function AdjustVehicleHandling(plyVeh)
     print(string.format("^3<Item type=\"CHandlingData\"> -- [Classe %s]^7", vehClass))
     print(string.format("  <fInitialDriveForce value=\"%.6f\" />", GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDriveForce")))
     print(string.format("  <fInitialDriveMaxFlatVel value=\"%.6f\" />", GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDriveMaxFlatVel")))
-    print(string.format("  <fInitialDragCoeff value=\"%.6f\" />", GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fInitialDragCoeff")))
     print(string.format("  <fSteeringLock value=\"%.6f\" />", GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fSteeringLock")))
     print(string.format("  <fTractionCurveMax value=\"%.6f\" />", GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fTractionCurveMax")))
     print(string.format("  <fTractionCurveMin value=\"%.6f\" />", GetVehicleHandlingFloat(plyVeh, "CHandlingData", "fTractionCurveMin")))
